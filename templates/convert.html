@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">تحويل الحروف من كابيتال الى سمول و العكس</h1>
+
+<p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">أدخل النص الذى تريد تحويله بالأسفل ثم اضغط على الزر الازرق</p>
+
+<form action="\polls\" method="POST"> {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Input Text</label>
+          <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <button type="submit" class="btn btn-primary">Convert</button>
+          <label for="exampleFormControlTextarea1">عدد الكلمات : {{ count }}</label>
+
+        </div>
+</form>
+
+<form action="\polls\" method="POST"> {% csrf_token %}
+    <div class="form-group">
+      <button name="allsmall" type="submit" class="btn btn-primary">Small</button>
+    </div>
+</form>
+
+<form>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Output Text</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{newsmall}}</textarea>
+        </div>
+</form>
+
+{% endblock %}
+
